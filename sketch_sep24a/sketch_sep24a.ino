@@ -1,22 +1,23 @@
-void setup() {
-  // initialize digital pin as an output.
-  pinMode(2, OUTPUT);
-  pinMode(6, OUTPUT);
+const int pushButton=2;
+const int ledPin = 3;
+int buttonState=0;
+
+void setup() 
+{
+
+  pinMode(ledPin, OUTPUT);
+  pinMode(pushButton, INPUT);
 }
 
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(6, HIGH);
-  digitalWrite(2, LOW);
-  delay(5000);
-  digitalWrite(6, LOW);
-  digitalWrite(2, LOW);
-  delay(5000);
-  digitalWrite(2, LOW);
-  digitalWrite(6, HIGH);
-  delay(5000);
-  digitalWrite(6, HIGH);
-  digitalWrite(2, HIGH);
-  delay(5000);
+void loop() 
+{
+buttonState = digitalRead(pushButton);
+if (buttonState == HIGH) 
+{
+digitalWrite(ledPin, LOW);
+} 
+else 
+{
+digitalWrite(ledPin, HIGH);
 }
-
+}
